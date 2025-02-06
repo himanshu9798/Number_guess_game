@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 500px;
+            padding: 20px;
+            margin-left: 450px;
+            margin-top: 100px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            border: 1px solid black;
+            box-shadow: 3px 3px 3px gray;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 50%;
+            height: 25px;
+            background-color: beige;
+            color: black;
+            border-radius: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        button {
+            background-color: green;
+            border: 1px solid white;
+            outline: 1px solid black;
+            border-radius: 10px;
+            width: 35%;
+            height: 35px;
+            color: white;
+            margin-left: 160px;
+        }
+
+        p {
+            text-align: center;
+            font-weight: 800;
+        }
+    </style>
+    <script>
+        const number = Math.floor(Math.random() * 100) + 1;
+        function NumberGuss() {
+            let user_num = document.getElementById('guess').value;
+            user_num = parseInt(user_num);
+            if (user_num > 100 || user_num <= 0) {
+                alert("Enter the number between 0 and 100");
+                return ;
+            } else if (user_num == "") {
+                alert("Enter the value");
+                return ;
+                
+            } else if (/[^0-9]/.test(user_num)) {
+                alert(" Dont try to make me Fool! Please enter a valid number, not letters");
+            }
+
+
+            let win = document.getElementById("result");
+            if (user_num > number) {
+                win.innerHTML = "Num is large guess again"
+                win.style.color = "red"
+            } else if (user_num < number) {
+                win.innerHTML = "Number is Small"
+                win.style.color = "#EFB036"
+            } else if (user_num == number) {
+                win.innerHTML = "Correct ! <br/>Congratulation you win"
+                win.style.color = "Green"
+
+            }
+
+        }
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <h1>
+            Guess the Number between 1 To 100:
+            <br /><input type="text" id="guess" />
+        </h1>
+
+        <button type="button" id="Guess" onclick="NumberGuss()">Gusss the number</button>
+        <p id="result"></p>
+    </div>
+
+</body>
+
+</html>
